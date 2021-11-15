@@ -1,0 +1,36 @@
+<html ng-app="myApp" id="myApp">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="./main.js"></script>
+    <script src="./estilos.css"></script>
+
+</head>
+
+<body ng-controller="myController">
+    {{ msg }} <!-- Respuesta de Angular con la variable msg -->
+    <br><br>
+    <a href="javascript:;" id="lbtnTest"> Llamar </a>
+
+    <form>
+        <div class="form-group">
+            <label for="valor">Nombre</label><br>
+            <input type="text" class="form-control input-lg text-center" placeholder="John" id="nombre"
+                ng-model="formData.nombre"><br>
+            <label for="valor">Correo</label><br>
+            <input type="text" class="form-control input-lg text-center" placeholder="john@dev.es"
+                ng-model="formData.correo"><br>
+            <label for="VALOR">Password</label><br>
+            <input type="password" class="form-control input-lg text-center" placeholder=""
+                ng-model="formData.password">
+
+            {{ todos }} <!-- Respuesta de Angular con la variable todos que viene de Mongo Atlas -->
+
+        </div>
+        <button class="btn btn-primary btn-lg" ng-click="createTodo()">Añadir</button>
+    </form>
+</body>
+
+</html>
