@@ -1,36 +1,39 @@
-<html ng-app="myApp" id="myApp">
+!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Test</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="./main.js"></script>
-    <script src="./estilos.css"></script>
+<body ng-app="myApp">
 
-</head>
+<p><a href="#/!">Main</a></p>
 
-<body ng-controller="myController">
-    {{ msg }} <!-- Respuesta de Angular con la variable msg -->
-    <br><br>
-    <a href="javascript:;" id="lbtnTest"> Llamar </a>
+<a href="#!red">Red</a>
+<a href="#!green">Green</a>
+<a href="#!blue">Blue</a>
 
-    <form>
-        <div class="form-group">
-            <label for="valor">Nombre</label><br>
-            <input type="text" class="form-control input-lg text-center" placeholder="John" id="nombre"
-                ng-model="formData.nombre"><br>
-            <label for="valor">Correo</label><br>
-            <input type="text" class="form-control input-lg text-center" placeholder="john@dev.es"
-                ng-model="formData.correo"><br>
-            <label for="VALOR">Password</label><br>
-            <input type="password" class="form-control input-lg text-center" placeholder=""
-                ng-model="formData.password">
+<div ng-view></div>
 
-            {{ todos }} <!-- Respuesta de Angular con la variable todos que viene de Mongo Atlas -->
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.htm"
+    })
+    .when("/red", {
+        templateUrl : "red.htm"
+    })
+    .when("/green", {
+        templateUrl : "green.htm"
+    })
+    .when("/blue", {
+        templateUrl : "blue.htm"
+    });
+});
+</script>
 
-        </div>
-        <button class="btn btn-primary btn-lg" ng-click="createTodo()">Añadir</button>
-    </form>
+<p>Click on the links to navigate to "red.htm", "green.htm", "blue.htm", or back to "main.htm"</p>
+
+<a href="./inmueble.html">Inmueble</a>
 </body>
-
 </html>

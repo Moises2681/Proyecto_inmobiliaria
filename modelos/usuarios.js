@@ -1,3 +1,4 @@
+
 var mongoose = require('mongoose');
 //Set up default mongoose connection
 const userscheme = new mongoose.Schema({
@@ -8,7 +9,7 @@ const userscheme = new mongoose.Schema({
         type: String
     },
     password : {
-        type: String
+        type: String 
     }
 })// Fin userScheme
 

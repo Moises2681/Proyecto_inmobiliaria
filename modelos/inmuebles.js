@@ -1,4 +1,4 @@
-
+const {ObjectId} = require("bson")
 var mongoose= require("mongoose")
 
 const inmobiliariaEsquema = mongoose.Schema({
@@ -12,12 +12,8 @@ tipo: {
     type: String
 },
 
-imagen: {
-    type: String
-},
-
 ubicacion: {
-    type: String
+    type: ObjectId
 }
 })
-module.exports= mongoose.model('inmueble', inmobiliariaEsquema)
+module.exports= mongoose.model('inmuebles', inmobiliariaEsquema)

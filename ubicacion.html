@@ -1,0 +1,37 @@
+<html ng-app="myApp" id="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Ubicacion</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./main.js"></script>
+    <script src="./estilos.css"></script>
+
+</head>
+
+<body ng-controller="myController">
+    {{ msg }} <!-- Respuesta de Angular con la variable msg -->
+    <br><br>
+    <a href="javascript:;" id="lbtnTest"> Llamar </a>
+
+    <form>
+        <div class="form-group">
+            <label for="valor">Zona</label><br>
+            <input type="text" class="form-control input-lg text-center" placeholder="Zona del inmueble" id="zona"
+                ng-model="formData.zona"><br>
+            <label for="valor">Barrio</label><br>
+            <input type="text" class="form-control input-lg text-center" placeholder="Barrio del inmueble"
+                ng-model="formData.barrio"><br>
+            <label for="valor">Direccion</label><br>
+            <input type="text" class="form-control input-lg text-center" placeholder="Direccion del inmueble"
+                ng-model="formData.direccion">
+
+            {{ todos }} <!-- Respuesta de Angular con la variable todos que viene de Mongo Atlas -->
+
+        </div>
+        <button class="btn btn-primary btn-lg" ng-click="registrarUbicacion()">Añadir</button>
+    </form>
+</body>
+
+</html>

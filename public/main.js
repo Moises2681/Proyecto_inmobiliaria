@@ -4,7 +4,7 @@ var ngApp = angular.module('myApp', []) // variable para crear App Angular
 ngApp.controller('myController', function ($scope, $http) {
 
   //scope funciona variable de sesion, el metodo msg funciona para imprimir en pantalla
-  $scope.msg = 'Inmobiliaria de Moisés y Yeison'
+  $scope.msg = 'Inmobiliaria Team 100'
 
   // Metodo getData para conseguir informacion
   $scope.getData = function () {
@@ -12,7 +12,8 @@ ngApp.controller('myController', function ($scope, $http) {
   }
 
   // Metodo createToDo para hacer 'algo'
-  $scope.createTodo = function () {
+  
+  $scope.registrarUsuario = function () {
 
     $http
       .post("http://localhost:9000/insertarUsuario", $scope.formData) // Se envia la info a la '/upload'
@@ -20,7 +21,37 @@ ngApp.controller('myController', function ($scope, $http) {
         // $scope.formData = {} -- Ya venia comentado --
         $scope.todos = response.data;
         console.log(response);
-      })// Fin successCallback
+      }) // Fin successCallback
+
+    //   alert($scope.tel+" "+$scope.cedula)
+
+  } // Fin createTodo
+
+  // DATOS DE INMUEBLE
+  $scope.registrarInmueble = function () {
+
+    $http
+      .post("http://localhost:9000/insertarInmueble", $scope.formData) // Se envia la info a la '/upload'
+      .then(function successCallback(response) { // Entonces el server responde
+        // $scope.formData = {} -- Ya venia comentado --
+        $scope.todos = response.data;
+        console.log(response);
+      }) // Fin successCallback
+
+    //   alert($scope.tel+" "+$scope.cedula)
+
+  } // Fin createTodo
+
+  // DATOS DE LA UBICACION
+  $scope.registrarUbicacion = function () {
+
+    $http
+      .post("http://localhost:9000/insertarUbicacion", $scope.formData) // Se envia la info a la '/upload'
+      .then(function successCallback(response) { // Entonces el server responde
+        // $scope.formData = {} -- Ya venia comentado --
+        $scope.todos = response.data;
+        console.log(response);
+      }) // Fin successCallback
 
     //   alert($scope.tel+" "+$scope.cedula)
 
@@ -44,6 +75,6 @@ onload = function () {
     $scope.$apply()
     // Llame al método getData () en el controlador
     console.log($scope.getData())
-  }// Fin document.getById
+  } // Fin document.getById
 
 } // Fin onload
